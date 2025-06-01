@@ -2,7 +2,7 @@
 
 Small command‑line chat client that
 
-1. \*\*Runs entirely offline with a local LLM via \*\*[**Ollama**](https://ollama.ai/)
+1. **Runs entirely offline with a local LLM via Ollama**
 2. **Talks to any number of Model‑Context‑Protocol (MCP) servers**, all declared in one `config.json`
 
 At start‑up the client launches every server, fetches their tool schemas, prefixes tool names (`postgres.*`, `filesystem.*`, …) and gives the merged list to the model.
@@ -22,11 +22,11 @@ The LLM decides which server to call for each user request.
 
 ## Requirements
 
-| Component     | Version tested                                                                               |
-| ------------- | -------------------------------------------------------------------------------------------- |
-| Python        | ≥ 3.12                                                                                       |
-| Ollama        | ≥ 0.8.0                                                                                      |
-| MCP server(s) | Anything that supports **stdio** transport (e.g. Postgres‑MCP ≥ 0.3.1, filesystem server, …) |
+| Component     | Version tested                             |
+| ------------- | -------------------------------------------|
+| Python        | ≥ 3.12                                     |
+| Ollama        | ≥ 0.8.0                                    |
+| MCP server(s) | Anything that supports **stdio** transport |
 
 ---
 
@@ -45,7 +45,7 @@ uv pip sync          # or: uv pip install -r uv.lock
 # 3. pull a local model
 ollama pull qwen3:14b
 
-# 4. edit DATABASE_URI etc. in config.json
+# 4. edit Model Name, DATABASE_URI etc. in config.json
 
 # 5. run
 uv run client.py
@@ -98,7 +98,9 @@ Type natural language queries; the model will decide when and how to call the ex
 ```
 
 *Keys under **`mcpServers`** become prefixes (**`postgres.*`**, **`filesystem.*`**).*
-*Each server starts as its own **`stdio`** subprocess; use Docker, **`uv run`**, **`npx`**, or a native binary as you prefer.*
+
+*Each server starts as its own **`stdio`** subprocess.*
+
 *Add or remove servers without touching **`client.py`**.*
 
 Everything stays local, everything is configurable in one file.
