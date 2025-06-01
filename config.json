@@ -1,0 +1,26 @@
+{
+  "llm": {
+    "model": "qwen3:14b",
+    "temperature": 0.7,
+    "max_tokens": 2048
+  },
+
+  "mcpServers": {
+    "postgres": {
+      "command": "postgres-mcp",
+      "args": ["--access-mode=restricted"],
+      "env": {
+        "DATABASE_URI": "postgresql://user:pass@localhost:5432/db"
+      }
+    },
+
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/mnt/smbshare/"
+      ]
+    }
+  }
+}
