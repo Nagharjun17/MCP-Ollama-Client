@@ -34,7 +34,7 @@ The LLM decides which server to call for each user request.
 
 ```bash
 # 1. clone
-git clone https://github.com/<you>/mcp-ollama-client.git
+git clone https://github.com/Nagharjun17/MCP-Ollama-Client.git
 cd mcp-ollama-client
 
 # 2. set up environment
